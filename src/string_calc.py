@@ -6,5 +6,5 @@ class StringCalculator:
             return int(input)
         else:
             nums = input.split(",")
-            nums = [int(num) for num in nums]
-            return sum(nums)
+            return int(nums[0]) + int(nums[1])
+            
