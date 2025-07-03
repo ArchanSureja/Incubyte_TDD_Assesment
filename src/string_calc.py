@@ -1,3 +1,5 @@
 class StringCalculator:
     def add(input):
-        return 0
+        if len(input)==0:
+            return 0
+        
