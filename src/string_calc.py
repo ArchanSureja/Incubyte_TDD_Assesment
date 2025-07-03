@@ -1,9 +1,7 @@
 class StringCalculator:
     def add(input):
-        if len(input)==0:
+        if not input:
             return 0
-        elif len(input)==1:
-            return int(input)
         else:
             nums = input.split(",")
             nums = [int(num) for num in nums]
