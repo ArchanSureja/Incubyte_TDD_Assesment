@@ -22,8 +22,10 @@ class StringCalculator:
             # custom delimeter
             if input.startswith("//"):
                 custom_delimeter , input = input.split("\n",1)
-                match = re.match(r"//(.)",custom_delimeter)
+                match = re.match(r"//(\[.*\]|.)",custom_delimeter)
                 custom_delimeter = match.group(1)
+                if custom_delimeter[0]=='[':
+                    custom_delimeter=custom_delimeter[1:-1]
                 input = input.replace(custom_delimeter,",")
 
             input = input.replace("\n",",")
