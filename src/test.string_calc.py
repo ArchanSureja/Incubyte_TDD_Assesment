@@ -22,6 +22,14 @@ class StringCalculatorTest(unittest.TestCase):
     def test_custom_delimeter(self):
         self.assertEqual(3,StringCalculator.add("//;\n1;2"))
         self.assertEqual(4,StringCalculator.add("//;\n1;2;1"))
+    
+    def test_negetive_number_input(self):
+        self.assertEqual(
+            "negetive numbers not allowed -1", StringCalculator.add("-1")
+        )
+        self.asserEqual(
+            "negetive numbers not allowed -1,-2,-3",StringCalculator.add("-1,-2\n,-3")
+        )
 if __name__ == "__main__":
     unittest.main()
 
