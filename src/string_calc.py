@@ -14,7 +14,7 @@ class StringCalculator:
         return [num for num in nums if num<0]
 
     def add(input):
-        if not input:
+        if not input or (len(input)==1 and int(input)>1000):
             return 0
         else:
             # custom delimeter
@@ -25,7 +25,7 @@ class StringCalculator:
 
             input = input.replace("\n",",")
             nums = input.split(",")
-            nums = [int(num) for num in nums]
+            nums = [int(num) for num in nums if int(num)<=1000]
             negetive_nums = StringCalculator._negetives(nums)
             if negetive_nums:
                 raise NegetiveNumberException(negetive_nums)
