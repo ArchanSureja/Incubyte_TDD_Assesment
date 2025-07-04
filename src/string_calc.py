@@ -8,6 +8,11 @@ class NegetiveNumberException(Exception):
         super().__init__(msg)
 
 class StringCalculator:
+
+    @staticmethod
+    def _negetives(nums):
+        return [num for num in nums if num<0]
+
     def add(input):
         if not input:
             return 0
@@ -21,7 +26,7 @@ class StringCalculator:
             input = input.replace("\n",",")
             nums = input.split(",")
             nums = [int(num) for num in nums]
-            negetive_nums = [num for num in nums if num<0]
+            negetive_nums = StringCalculator._negetives(nums)
             if negetive_nums:
                 raise NegetiveNumberException(negetive_nums)
             return sum(nums)
