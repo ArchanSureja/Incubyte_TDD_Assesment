@@ -32,6 +32,10 @@ class StringCalculatorTest(unittest.TestCase):
             StringCalculator.add("-1,-2,3")
         except NegetiveNumberException as e:
             self.assertEqual("negetive numbers not allowed -1, -2",str(e))
+    
+    def test_ignore_number_greater_then_1000(self):
+        self.assertEqual(1001,StringCalculator.add("1000,1,2000"))
+        self.assertEqual(0,StringCalculator.add("1001"))
         
 if __name__ == "__main__":
     unittest.main()
