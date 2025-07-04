@@ -18,6 +18,10 @@ class StringCalculatorTest(unittest.TestCase):
         self.assertEqual(6,StringCalculator.add("1\n2,3"))
         self.assertEqual(7,StringCalculator.add("5\n2"))
         self.assertEqual(11,StringCalculator.add("5\n1\n5"))
+    
+    def test_custom_delimeter(self):
+        self.assertEqual(3,StringCalculator.add("//;\n1;2"))
+        self.assertEqual(4,StringCalculator.add("//;\n1;2;1"))
 if __name__ == "__main__":
     unittest.main()
 
