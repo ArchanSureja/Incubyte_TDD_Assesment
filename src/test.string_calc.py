@@ -36,6 +36,10 @@ class StringCalculatorTest(unittest.TestCase):
     def test_ignore_number_greater_then_1000(self):
         self.assertEqual(1001,StringCalculator.add("1000,1,2000"))
         self.assertEqual(0,StringCalculator.add("1001"))
+    
+    def test_longer_custom_delimeter(self):
+        self.assertEqual(6,StringCalculator.add("//[***]\n2***2***2"))
+        
         
 if __name__ == "__main__":
     unittest.main()
