@@ -39,6 +39,9 @@ class StringCalculatorTest(unittest.TestCase):
     
     def test_longer_custom_delimeter(self):
         self.assertEqual(6,StringCalculator.add("//[***]\n2***2***2"))
+    
+    def test_multiple_custom_delimeter(self):
+        self.assertEqual(7,StringCalculator.add("//[*][%]\n3%1*3"))
         
         
 if __name__ == "__main__":
