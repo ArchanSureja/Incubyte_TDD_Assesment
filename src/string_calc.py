@@ -1,3 +1,12 @@
+class NegetiveNumberException(Exception):
+    def __init__(self,negetive_nums):
+        num_str=""
+        for i in range(len(negetive_nums)-1):
+            num_str += f"{str(negetive_nums[i])}, "
+        num_str += f"{str(negetive_nums[-1])}"
+        msg = f"negetive numbers not allowed {num_str}"
+        super().__init__(msg)
+
 class StringCalculator:
     def add(input):
         if not input:
@@ -12,5 +21,8 @@ class StringCalculator:
             input = input.replace("\n",",")
             nums = input.split(",")
             nums = [int(num) for num in nums]
+            negetive_nums = [num for num in nums if num<0]
+            if negetive_nums:
+                raise NegetiveNumberException(negetive_nums)
             return sum(nums)
 

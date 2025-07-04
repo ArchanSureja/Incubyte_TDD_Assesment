@@ -1,5 +1,5 @@
 import unittest 
-from string_calc import StringCalculator 
+from string_calc import StringCalculator , NegetiveNumberException
 
 class StringCalculatorTest(unittest.TestCase):
     def test_empty_str_input(self):
@@ -24,12 +24,15 @@ class StringCalculatorTest(unittest.TestCase):
         self.assertEqual(4,StringCalculator.add("//;\n1;2;1"))
     
     def test_negetive_number_input(self):
-        self.assertEqual(
-            "negetive numbers not allowed -1", StringCalculator.add("-1")
-        )
-        self.asserEqual(
-            "negetive numbers not allowed -1,-2,-3",StringCalculator.add("-1,-2\n,-3")
-        )
+        try:
+            StringCalculator.add("-1")
+        except NegetiveNumberException as e:
+            self.assertEqual("negetive numbers not allowed -1",str(e))
+        try:
+            StringCalculator.add("-1,-2,3")
+        except NegetiveNumberException as e:
+            self.assertEqual("negetive numbers not allowed -1, -2",str(e))
+        
 if __name__ == "__main__":
     unittest.main()
 
