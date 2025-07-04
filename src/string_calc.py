@@ -1,3 +1,5 @@
+import re 
+
 class NegetiveNumberException(Exception):
     def __init__(self,negetive_nums):
         num_str=""
@@ -20,7 +22,8 @@ class StringCalculator:
             # custom delimeter
             if input.startswith("//"):
                 custom_delimeter , input = input.split("\n",1)
-                custom_delimeter=custom_delimeter[2] # skipping first two /
+                match = re.match(r"//(.)",custom_delimeter)
+                custom_delimeter = match.group(1)
                 input = input.replace(custom_delimeter,",")
 
             input = input.replace("\n",",")
